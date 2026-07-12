@@ -11,27 +11,27 @@ export default function OnboardingScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.icon}>🛡️</Text>
+        <Text style={styles.icon}>⭐</Text>
 
         <Text style={styles.title}>
-          Find Trusted{"\n"}Vehicle Experts
+          Drive with{"\n"}Confidence
         </Text>
 
         <Text style={styles.description}>
-          Connect with verified mechanics, towing services, spare parts dealers,
-          and trusted automotive professionals near you.
+          Track your requests, review service providers, manage your vehicles,
+          and enjoy peace of mind wherever your journey takes you.
         </Text>
 
         <View style={styles.indicatorContainer}>
+          <View style={styles.dot} />
+          <View style={styles.dot} />
           <View style={[styles.dot, styles.activeDot]} />
-          <View style={styles.dot} />
-          <View style={styles.dot} />
         </View>
       </View>
 
       <View style={styles.footer}>
         <PrimaryButton
-          title="Next"
+          title="Get Started"
           onPress={() => {}}
         />
       </View>
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
 
   indicatorContainer: {
     flexDirection: "row",
+    justifyContent: "center",
     marginTop: Spacing.lg,
   },
 
@@ -88,8 +89,8 @@ const styles = StyleSheet.create({
   },
 
   activeDot: {
-    backgroundColor: Colors.primary,
     width: 24,
+    backgroundColor: Colors.primary,
   },
 
   footer: {
