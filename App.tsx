@@ -1,5 +1,5 @@
-import OnboardingScreen from "./src/screens/auth/OnboardingScreen";
+import SplashScreen from "./src/screens/auth/SplashScreen";
 
 export default function App() {
-  return <OnboardingScreen />;
+  return <SplashScreen />;
 }

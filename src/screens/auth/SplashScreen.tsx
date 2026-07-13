@@ -1,18 +1,25 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Colors } from "../../theme/colors";
-import { Typography } from "../../theme/typography";
 import { Spacing } from "../../theme/spacing";
+import { Typography } from "../../theme/typography";
 
 export default function SplashScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.logo}>🚗</Text>
-
-        <Text style={styles.title}>VINID</Text>
+        <Image
+          source={require("../../../assets/logo/splash-logo.png")}
+          style={styles.logo}
+        />
 
         <Text style={styles.subtitle}>
           Connecting you to trusted vehicle experts
@@ -38,19 +45,14 @@ const styles = StyleSheet.create({
 
   content: {
     alignItems: "center",
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: Spacing.xl,
   },
 
   logo: {
-    fontSize: 70,
-    marginBottom: Spacing.lg,
-  },
-
-  title: {
-    fontSize: Typography.fontSize.xxxl,
-    fontWeight: Typography.fontWeight.bold,
-    color: Colors.primary,
-    marginBottom: Spacing.sm,
+    width: 220,
+    height: 220,
+    resizeMode: "contain",
+    marginBottom: Spacing.xl,
   },
 
   subtitle: {
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: Spacing.xl,
     lineHeight: 24,
+    paddingHorizontal: Spacing.md,
   },
 
   loader: {
