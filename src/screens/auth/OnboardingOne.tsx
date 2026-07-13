@@ -1,22 +1,20 @@
 import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
+import PrimaryButton from "../../components/PrimaryButton";
 import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
-import PrimaryButton from "../../components/PrimaryButton";
+import { RootStackParamList } from "../../navigation/AppNavigator";
 
-export default function OnboardingScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, "OnboardingOne">;
+
+export default function OnboardingOne({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-
         <Image
           source={require("../../../assets/logo/vinid-logo.png")}
           style={styles.logo}
@@ -32,18 +30,17 @@ export default function OnboardingScreen() {
           professionals near you.
         </Text>
 
-        <View style={styles.indicatorContainer}>
+        <View style={styles.indicators}>
           <View style={[styles.dot, styles.activeDot]} />
           <View style={styles.dot} />
           <View style={styles.dot} />
         </View>
-
       </View>
 
       <View style={styles.footer}>
         <PrimaryButton
           title="Next"
-          onPress={() => {}}
+          onPress={() => navigation.navigate("OnboardingTwo")}
         />
       </View>
     </SafeAreaView>
@@ -54,7 +51,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
-    justifyContent: "space-between",
   },
 
   content: {
@@ -65,8 +61,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 170,
-    height: 170,
+    width: 180,
+    height: 180,
     resizeMode: "contain",
     marginBottom: Spacing.lg,
   },
@@ -84,13 +80,11 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     textAlign: "center",
     lineHeight: 24,
-    marginBottom: Spacing.xl,
-    paddingHorizontal: Spacing.sm,
+    marginBottom: Spacing.xxl,
   },
 
-  indicatorContainer: {
+  indicators: {
     flexDirection: "row",
-    justifyContent: "center",
   },
 
   dot: {

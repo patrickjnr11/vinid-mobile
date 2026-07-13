@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ActivityIndicator,
   Image,
@@ -7,12 +7,24 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
+import { RootStackParamList } from "../../navigation/AppNavigator";
 
-export default function SplashScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, "Splash">;
+
+export default function SplashScreen({ navigation }: Props) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace("OnboardingOne");
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
