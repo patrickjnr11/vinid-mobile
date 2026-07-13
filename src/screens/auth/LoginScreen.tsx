@@ -1,70 +1,171 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
+import InputField from "../../components/InputField";
+import PasswordField from "../../components/PasswordField";
 import PrimaryButton from "../../components/PrimaryButton";
+import SocialButton from "../../components/SocialButton";
+
 import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
 
-export default function LoginScreen() {
+import { RootStackParamList } from "../../navigation/AppNavigator";
+
+type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+
+export default function LoginScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+
         <Image
           source={require("../../../assets/logo/wordmark.png")}
-          style={styles.wordmark}
+          style={styles.logo}
         />
 
         <Text style={styles.title}>
-          Welcome to VINID
+          Welcome Back
         </Text>
 
         <Text style={styles.subtitle}>
-          Authentication screens are coming next.
+          Sign in to continue to VINID
         </Text>
 
+        <InputField
+          label="Email Address"
+          placeholder="Enter your email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+
+        <PasswordField
+          label="Password"
+          placeholder="Enter your password"
+        />
+
+        <TouchableOpacity>
+          <Text style={styles.forgot}>
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
+
         <PrimaryButton
-          title="Continue"
+          title="Login"
           onPress={() => {}}
         />
+
+        <View style={styles.dividerContainer}>
+          <View style={styles.line} />
+          <Text style={styles.or}>OR</Text>
+          <View style={styles.line} />
+        </View>
+
+        <SocialButton
+          title="Continue with Google"
+          onPress={() => {}}
+        />
+
+        <View style={styles.bottom}>
+          <Text style={styles.bottomText}>
+            Don't have an account?
+          </Text>
+
+          <TouchableOpacity>
+            <Text style={styles.register}>
+              Register
+            </Text>
+          </TouchableOpacity>
+
+        </View>
+
       </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
+
+  container:{
+    flex:1,
+    backgroundColor:Colors.background,
   },
 
-  content: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: Spacing.xl,
+  content:{
+    flex:1,
+    paddingHorizontal:Spacing.xl,
+    justifyContent:"center",
   },
 
-  wordmark: {
-    width: 220,
-    height: 90,
-    resizeMode: "contain",
-    alignSelf: "center",
-    marginBottom: Spacing.xl,
+  logo:{
+    width:220,
+    height:70,
+    resizeMode:"contain",
+    alignSelf:"center",
+    marginBottom:Spacing.xl,
   },
 
-  title: {
-    fontSize: Typography.fontSize.xxl,
-    fontWeight: Typography.fontWeight.bold,
-    color: Colors.primary,
-    textAlign: "center",
-    marginBottom: Spacing.md,
+  title:{
+    fontSize:Typography.fontSize.xxl,
+    fontWeight:Typography.fontWeight.bold,
+    color:Colors.primary,
+    textAlign:"center",
   },
 
-  subtitle: {
-    fontSize: Typography.fontSize.md,
-    color: Colors.textSecondary,
-    textAlign: "center",
-    marginBottom: Spacing.xxl,
+  subtitle:{
+    fontSize:Typography.fontSize.md,
+    color:Colors.textSecondary,
+    textAlign:"center",
+    marginBottom:Spacing.xl,
+    marginTop:8,
   },
+
+  forgot:{
+    color:Colors.primary,
+    textAlign:"right",
+    marginBottom:Spacing.lg,
+    fontWeight:Typography.fontWeight.semibold,
+  },
+
+  dividerContainer:{
+    flexDirection:"row",
+    alignItems:"center",
+    marginVertical:Spacing.xl,
+  },
+
+  line:{
+    flex:1,
+    height:1,
+    backgroundColor:"#D1D5DB",
+  },
+
+  or:{
+    marginHorizontal:15,
+    color:Colors.textSecondary,
+  },
+
+  bottom:{
+    flexDirection:"row",
+    justifyContent:"center",
+    marginTop:Spacing.xl,
+  },
+
+  bottomText:{
+    color:Colors.textSecondary,
+  },
+
+  register:{
+    color:Colors.primary,
+    fontWeight:Typography.fontWeight.bold,
+    marginLeft:6,
+  },
+
 });
