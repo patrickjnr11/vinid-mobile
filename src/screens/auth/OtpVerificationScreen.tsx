@@ -53,7 +53,7 @@ export default function OtpVerificationScreen({
 
 <PrimaryButton
   title="Verify"
-  onPress={() => navigation.navigate("Home")}
+  onPress={() => navigation.navigate("MainTabs")}
 />
 
         <TouchableOpacity>
