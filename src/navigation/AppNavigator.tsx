@@ -7,6 +7,7 @@ import OnboardingOne from "../screens/auth/OnboardingOne";
 import OnboardingTwo from "../screens/auth/OnboardingTwo";
 import OnboardingThree from "../screens/auth/OnboardingThree";
 import LoginScreen from "../screens/auth/LoginScreen";
+import RegisterScreen from "../screens/auth/RegisterScreen";
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   OnboardingTwo: undefined;
   OnboardingThree: undefined;
   Login: undefined;
+  Register: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -50,6 +52,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
+        />
+
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

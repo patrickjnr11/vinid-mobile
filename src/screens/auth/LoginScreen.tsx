@@ -26,7 +26,6 @@ export default function LoginScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-
         <Image
           source={require("../../../assets/logo/wordmark.png")}
           style={styles.logo}
@@ -52,7 +51,9 @@ export default function LoginScreen({ navigation }: Props) {
           placeholder="Enter your password"
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {}}
+        >
           <Text style={styles.forgot}>
             Forgot Password?
           </Text>
@@ -65,7 +66,9 @@ export default function LoginScreen({ navigation }: Props) {
 
         <View style={styles.dividerContainer}>
           <View style={styles.line} />
-          <Text style={styles.or}>OR</Text>
+          <Text style={styles.or}>
+            OR
+          </Text>
           <View style={styles.line} />
         </View>
 
@@ -79,12 +82,13 @@ export default function LoginScreen({ navigation }: Props) {
             Don't have an account?
           </Text>
 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Register")}
+          >
             <Text style={styles.register}>
               Register
             </Text>
           </TouchableOpacity>
-
         </View>
 
       </View>
@@ -93,79 +97,77 @@ export default function LoginScreen({ navigation }: Props) {
 }
 
 const styles = StyleSheet.create({
-
-  container:{
-    flex:1,
-    backgroundColor:Colors.background,
+  container: {
+    flex: 1,
+    backgroundColor: Colors.background,
   },
 
-  content:{
-    flex:1,
-    paddingHorizontal:Spacing.xl,
-    justifyContent:"center",
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: Spacing.xl,
   },
 
-  logo:{
-    width:220,
-    height:70,
-    resizeMode:"contain",
-    alignSelf:"center",
-    marginBottom:Spacing.xl,
+  logo: {
+    width: 220,
+    height: 70,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginBottom: Spacing.xl,
   },
 
-  title:{
-    fontSize:Typography.fontSize.xxl,
-    fontWeight:Typography.fontWeight.bold,
-    color:Colors.primary,
-    textAlign:"center",
+  title: {
+    fontSize: Typography.fontSize.xxl,
+    fontWeight: Typography.fontWeight.bold,
+    color: Colors.primary,
+    textAlign: "center",
   },
 
-  subtitle:{
-    fontSize:Typography.fontSize.md,
-    color:Colors.textSecondary,
-    textAlign:"center",
-    marginBottom:Spacing.xl,
-    marginTop:8,
+  subtitle: {
+    fontSize: Typography.fontSize.md,
+    color: Colors.textSecondary,
+    textAlign: "center",
+    marginTop: 8,
+    marginBottom: Spacing.xl,
   },
 
-  forgot:{
-    color:Colors.primary,
-    textAlign:"right",
-    marginBottom:Spacing.lg,
-    fontWeight:Typography.fontWeight.semibold,
+  forgot: {
+    color: Colors.primary,
+    textAlign: "right",
+    marginBottom: Spacing.lg,
+    fontWeight: Typography.fontWeight.semibold,
   },
 
-  dividerContainer:{
-    flexDirection:"row",
-    alignItems:"center",
-    marginVertical:Spacing.xl,
+  dividerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: Spacing.xl,
   },
 
-  line:{
-    flex:1,
-    height:1,
-    backgroundColor:"#D1D5DB",
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: "#D1D5DB",
   },
 
-  or:{
-    marginHorizontal:15,
-    color:Colors.textSecondary,
+  or: {
+    marginHorizontal: 15,
+    color: Colors.textSecondary,
   },
 
-  bottom:{
-    flexDirection:"row",
-    justifyContent:"center",
-    marginTop:Spacing.xl,
+  bottom: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: Spacing.xl,
   },
 
-  bottomText:{
-    color:Colors.textSecondary,
+  bottomText: {
+    color: Colors.textSecondary,
   },
 
-  register:{
-    color:Colors.primary,
-    fontWeight:Typography.fontWeight.bold,
-    marginLeft:6,
+  register: {
+    marginLeft: 6,
+    color: Colors.primary,
+    fontWeight: Typography.fontWeight.bold,
   },
-
 });
