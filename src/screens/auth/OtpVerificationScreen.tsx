@@ -51,10 +51,10 @@ export default function OtpVerificationScreen({
           <View style={styles.box} />
         </View>
 
-        <PrimaryButton
-          title="Verify"
-          onPress={() => {}}
-        />
+<PrimaryButton
+  title="Verify"
+  onPress={() => navigation.navigate("Home")}
+/>
 
         <TouchableOpacity>
           <Text style={styles.resend}>

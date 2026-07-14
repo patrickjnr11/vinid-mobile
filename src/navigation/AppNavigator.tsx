@@ -10,6 +10,7 @@ import LoginScreen from "../screens/auth/LoginScreen";
 import RegisterScreen from "../screens/auth/RegisterScreen";
 import ForgotPasswordScreen from "../screens/auth/ForgotPasswordScreen";
 import OtpVerificationScreen from "../screens/auth/OtpVerificationScreen";
+import HomeScreen from "../screens/home/HomeScreen";
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -20,6 +21,7 @@ export type RootStackParamList = {
   Register: undefined;
   ForgotPassword: undefined;
   OtpVerification: undefined;
+  Home: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -71,6 +73,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="OtpVerification"
           component={OtpVerificationScreen}
+        />
+
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
