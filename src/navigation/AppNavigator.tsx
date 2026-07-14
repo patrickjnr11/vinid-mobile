@@ -12,7 +12,9 @@ import ForgotPasswordScreen from "../screens/auth/ForgotPasswordScreen";
 import OtpVerificationScreen from "../screens/auth/OtpVerificationScreen";
 
 import MainTabNavigator from "./tabs/MainTabNavigator";
+
 import MechanicsScreen from "../screens/mechanics/MechanicsScreen";
+import MechanicDetailsScreen from "../screens/mechanics/MechanicDetailsScreen";
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -25,6 +27,7 @@ export type RootStackParamList = {
   OtpVerification: undefined;
   MainTabs: undefined;
   Mechanics: undefined;
+  MechanicDetails: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -86,6 +89,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Mechanics"
           component={MechanicsScreen}
+        />
+
+        <Stack.Screen
+          name="MechanicDetails"
+          component={MechanicDetailsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

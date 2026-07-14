@@ -6,6 +6,8 @@ import {
   Text,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 import MechanicCard from "../../components/MechanicCard";
 import { mechanics } from "../../data/mechanics";
 
@@ -14,6 +16,8 @@ import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
 
 export default function MechanicsScreen() {
+  const navigation = useNavigation<any>();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -35,7 +39,7 @@ export default function MechanicsScreen() {
             rating={mechanic.rating}
             distance={mechanic.distance}
             verified={mechanic.verified}
-            onPress={() => {}}
+            onPress={() => navigation.navigate("MechanicDetails")}
           />
         ))}
       </ScrollView>
