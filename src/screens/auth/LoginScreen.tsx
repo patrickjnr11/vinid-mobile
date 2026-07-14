@@ -31,9 +31,7 @@ export default function LoginScreen({ navigation }: Props) {
           style={styles.logo}
         />
 
-        <Text style={styles.title}>
-          Welcome Back
-        </Text>
+        <Text style={styles.title}>Welcome Back</Text>
 
         <Text style={styles.subtitle}>
           Sign in to continue to VINID
@@ -52,7 +50,7 @@ export default function LoginScreen({ navigation }: Props) {
         />
 
         <TouchableOpacity
-          onPress={() => {}}
+          onPress={() => navigation.navigate("ForgotPassword")}
         >
           <Text style={styles.forgot}>
             Forgot Password?
@@ -66,9 +64,7 @@ export default function LoginScreen({ navigation }: Props) {
 
         <View style={styles.dividerContainer}>
           <View style={styles.line} />
-          <Text style={styles.or}>
-            OR
-          </Text>
+          <Text style={styles.or}>OR</Text>
           <View style={styles.line} />
         </View>
 
@@ -90,7 +86,6 @@ export default function LoginScreen({ navigation }: Props) {
             </Text>
           </TouchableOpacity>
         </View>
-
       </View>
     </SafeAreaView>
   );
