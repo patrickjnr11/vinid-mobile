@@ -16,6 +16,9 @@ import MainTabNavigator from "./tabs/MainTabNavigator";
 import MechanicsScreen from "../screens/mechanics/MechanicsScreen";
 import MechanicDetailsScreen from "../screens/mechanics/MechanicDetailsScreen";
 
+import BookingScreen from "../screens/booking/BookingScreen";
+import BookingSuccessScreen from "../screens/booking/BookingSuccessScreen";
+
 export type RootStackParamList = {
   Splash: undefined;
   OnboardingOne: undefined;
@@ -28,6 +31,8 @@ export type RootStackParamList = {
   MainTabs: undefined;
   Mechanics: undefined;
   MechanicDetails: undefined;
+  Booking: undefined;
+  BookingSuccess: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -94,6 +99,16 @@ export default function AppNavigator() {
         <Stack.Screen
           name="MechanicDetails"
           component={MechanicDetailsScreen}
+        />
+
+        <Stack.Screen
+          name="Booking"
+          component={BookingScreen}
+        />
+
+        <Stack.Screen
+          name="BookingSuccess"
+          component={BookingSuccessScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
