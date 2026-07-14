@@ -39,7 +39,7 @@ export default function ForgotPasswordScreen({
         </Text>
 
         <Text style={styles.subtitle}>
-          Enter your email address and we'll send you instructions to reset your password.
+          Enter your email address and we'll send you a verification code.
         </Text>
 
         <InputField
@@ -50,8 +50,8 @@ export default function ForgotPasswordScreen({
         />
 
         <PrimaryButton
-          title="Send Reset Link"
-          onPress={() => {}}
+          title="Continue"
+          onPress={() => navigation.navigate("OtpVerification")}
         />
 
         <TouchableOpacity
