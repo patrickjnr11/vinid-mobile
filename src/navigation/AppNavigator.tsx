@@ -19,6 +19,10 @@ import MechanicDetailsScreen from "../screens/mechanics/MechanicDetailsScreen";
 import BookingScreen from "../screens/booking/BookingScreen";
 import BookingSuccessScreen from "../screens/booking/BookingSuccessScreen";
 
+import MyVehiclesScreen from "../screens/vehicles/MyVehiclesScreen";
+import VehicleDetailsScreen from "../screens/vehicles/VehicleDetailsScreen";
+import AddVehicleScreen from "../screens/vehicles/AddVehicleScreen";
+
 export type RootStackParamList = {
   Splash: undefined;
   OnboardingOne: undefined;
@@ -28,11 +32,18 @@ export type RootStackParamList = {
   Register: undefined;
   ForgotPassword: undefined;
   OtpVerification: undefined;
+
   MainTabs: undefined;
+
   Mechanics: undefined;
   MechanicDetails: undefined;
+
   Booking: undefined;
   BookingSuccess: undefined;
+
+  MyVehicles: undefined;
+  VehicleDetails: undefined;
+  AddVehicle: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -109,6 +120,21 @@ export default function AppNavigator() {
         <Stack.Screen
           name="BookingSuccess"
           component={BookingSuccessScreen}
+        />
+
+        <Stack.Screen
+          name="MyVehicles"
+          component={MyVehiclesScreen}
+        />
+
+        <Stack.Screen
+          name="VehicleDetails"
+          component={VehicleDetailsScreen}
+        />
+
+        <Stack.Screen
+          name="AddVehicle"
+          component={AddVehicleScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
