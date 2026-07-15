@@ -6,8 +6,6 @@ import {
   Text,
 } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
-
 import BookingCard from "../../components/BookingCard";
 import { bookings } from "../../data/bookings";
 
@@ -15,17 +13,13 @@ import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
 
-export default function BookingsScreen() {
-  const navigation = useNavigation<any>();
-
+export default function BookingHistoryScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}
-      >
+      <ScrollView contentContainerStyle={styles.content}>
+
         <Text style={styles.title}>
-          My Bookings
+          Booking History
         </Text>
 
         {bookings.map((booking) => (
@@ -35,11 +29,10 @@ export default function BookingsScreen() {
             service={booking.service}
             date={booking.date}
             status={booking.status}
-            onPress={() =>
-              navigation.navigate("BookingDetails")
-            }
+            onPress={() => {}}
           />
         ))}
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -53,7 +46,6 @@ const styles = StyleSheet.create({
 
   content: {
     padding: Spacing.lg,
-    paddingBottom: Spacing.xxl,
   },
 
   title: {

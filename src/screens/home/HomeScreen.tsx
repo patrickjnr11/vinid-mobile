@@ -7,6 +7,8 @@ import {
   View,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 import HomeHeader from "../../components/HomeHeader";
 import QuickActionCard from "../../components/QuickActionCard";
 import SectionCard from "../../components/SectionCard";
@@ -17,6 +19,8 @@ import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
 
 export default function HomeScreen() {
+  const navigation = useNavigation<any>();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -30,17 +34,16 @@ export default function HomeScreen() {
         </Text>
 
         <View style={styles.grid}>
-
           <QuickActionCard
             emoji="🛠"
             title="Find Mechanic"
-            onPress={() => {}}
+            onPress={() => navigation.navigate("Mechanics")}
           />
 
           <QuickActionCard
             emoji="🚗"
             title="Book Service"
-            onPress={() => {}}
+            onPress={() => navigation.navigate("Mechanics")}
           />
 
           <QuickActionCard
@@ -54,39 +57,32 @@ export default function HomeScreen() {
             title="Spare Parts"
             onPress={() => {}}
           />
-
         </View>
 
         <SectionCard title="My Vehicles">
-
           <Text style={styles.body}>
-            No vehicles added yet.
+            Manage all your registered vehicles.
           </Text>
 
           <View style={styles.buttonSpacing}>
             <PrimaryButton
-              title="Add Vehicle"
-              onPress={() => {}}
+              title="View My Vehicles"
+              onPress={() => navigation.navigate("MyVehicles")}
             />
           </View>
-
         </SectionCard>
 
         <SectionCard title="Recent Activity">
-
           <Text style={styles.body}>
             You haven't made any bookings yet.
           </Text>
-
         </SectionCard>
-
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: Colors.background,
@@ -120,5 +116,4 @@ const styles = StyleSheet.create({
   buttonSpacing: {
     marginTop: Spacing.md,
   },
-
 });

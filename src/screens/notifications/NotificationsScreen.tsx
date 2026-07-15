@@ -2,18 +2,35 @@ import React from "react";
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
+import NotificationCard from "../../components/NotificationCard";
+
+import { notifications } from "../../data/notifications";
+
 import { Colors } from "../../theme/colors";
-import { Typography } from "../../theme/typography";
+import { Spacing } from "../../theme/spacing";
 
 export default function NotificationsScreen() {
+  const navigation = useNavigation<any>();
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>
-        Notifications Screen
-      </Text>
+
+      {notifications.map((notification) => (
+        <NotificationCard
+          key={notification.id}
+          title={notification.title}
+          message={notification.message}
+          time={notification.time}
+          onPress={() =>
+            navigation.navigate("NotificationDetails")
+          }
+        />
+      ))}
+
     </SafeAreaView>
   );
 }
@@ -22,13 +39,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  title: {
-    fontSize: Typography.fontSize.xl,
-    fontWeight: Typography.fontWeight.bold,
-    color: Colors.primary,
+    padding: Spacing.lg,
   },
 });

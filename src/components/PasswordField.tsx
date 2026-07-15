@@ -14,20 +14,28 @@ import { Typography } from "../theme/typography";
 interface PasswordFieldProps {
   label: string;
   placeholder?: string;
+  value: string;
+  onChangeText: (text: string) => void;
 }
 
 export default function PasswordField({
   label,
   placeholder,
+  value,
+  onChangeText,
 }: PasswordFieldProps) {
   const [hidden, setHidden] = useState(true);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.label}>
+        {label}
+      </Text>
 
       <View style={styles.inputContainer}>
         <TextInput
+          value={value}
+          onChangeText={onChangeText}
           secureTextEntry={hidden}
           placeholder={placeholder}
           placeholderTextColor="#9CA3AF"
@@ -51,7 +59,7 @@ const styles = StyleSheet.create({
 
   label: {
     marginBottom: 8,
-    color: Colors.textPrimary,
+    color: Colors.text,
     fontSize: Typography.fontSize.sm,
     fontWeight: Typography.fontWeight.semibold,
   },
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 15,
     fontSize: Typography.fontSize.md,
-    color: Colors.textPrimary,
+    color: Colors.text,
   },
 
   toggle: {

@@ -23,6 +23,19 @@ import MyVehiclesScreen from "../screens/vehicles/MyVehiclesScreen";
 import VehicleDetailsScreen from "../screens/vehicles/VehicleDetailsScreen";
 import AddVehicleScreen from "../screens/vehicles/AddVehicleScreen";
 
+import EditProfileScreen from "../screens/profile/EditProfileScreen";
+import SettingsScreen from "../screens/profile/SettingsScreen";
+import FavoritesScreen from "../screens/profile/FavoritesScreen";
+import ReviewsScreen from "../screens/profile/ReviewsScreen";
+import HelpSupportScreen from "../screens/profile/HelpSupportScreen";
+import ChangePasswordScreen from "../screens/profile/ChangePasswordScreen";
+
+import BookingHistoryScreen from "../screens/bookings/BookingHistoryScreen";
+import BookingDetailsScreen from "../screens/bookings/BookingDetailsScreen";
+import LeaveReviewScreen from "../screens/bookings/LeaveReviewScreen";
+
+import NotificationDetailsScreen from "../screens/notifications/NotificationDetailsScreen";
+
 export type RootStackParamList = {
   Splash: undefined;
   OnboardingOne: undefined;
@@ -44,6 +57,19 @@ export type RootStackParamList = {
   MyVehicles: undefined;
   VehicleDetails: undefined;
   AddVehicle: undefined;
+
+  EditProfile: undefined;
+  Settings: undefined;
+  Favorites: undefined;
+  Reviews: undefined;
+  HelpSupport: undefined;
+  ChangePassword: undefined;
+
+  BookingHistory: undefined;
+  BookingDetails: undefined;
+  LeaveReview: undefined;
+
+  NotificationDetails: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -135,6 +161,56 @@ export default function AppNavigator() {
         <Stack.Screen
           name="AddVehicle"
           component={AddVehicleScreen}
+        />
+
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfileScreen}
+        />
+
+        <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+        />
+
+        <Stack.Screen
+          name="Favorites"
+          component={FavoritesScreen}
+        />
+
+        <Stack.Screen
+          name="Reviews"
+          component={ReviewsScreen}
+        />
+
+        <Stack.Screen
+          name="HelpSupport"
+          component={HelpSupportScreen}
+        />
+
+        <Stack.Screen
+          name="ChangePassword"
+          component={ChangePasswordScreen}
+        />
+
+        <Stack.Screen
+          name="BookingHistory"
+          component={BookingHistoryScreen}
+        />
+
+        <Stack.Screen
+          name="BookingDetails"
+          component={BookingDetailsScreen}
+        />
+
+        <Stack.Screen
+          name="LeaveReview"
+          component={LeaveReviewScreen}
+        />
+
+        <Stack.Screen
+          name="NotificationDetails"
+          component={NotificationDetailsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

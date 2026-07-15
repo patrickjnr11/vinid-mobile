@@ -6,40 +6,32 @@ import {
   Text,
 } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
-
-import BookingCard from "../../components/BookingCard";
-import { bookings } from "../../data/bookings";
+import FavoriteMechanicCard from "../../components/FavoriteMechanicCard";
+import { favorites } from "../../data/favorites";
 
 import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
 
-export default function BookingsScreen() {
-  const navigation = useNavigation<any>();
-
+export default function FavoritesScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}
-      >
+      <ScrollView contentContainerStyle={styles.content}>
+
         <Text style={styles.title}>
-          My Bookings
+          Favorite Mechanics
         </Text>
 
-        {bookings.map((booking) => (
-          <BookingCard
-            key={booking.id}
-            mechanic={booking.mechanic}
-            service={booking.service}
-            date={booking.date}
-            status={booking.status}
-            onPress={() =>
-              navigation.navigate("BookingDetails")
-            }
+        {favorites.map((mechanic) => (
+          <FavoriteMechanicCard
+            key={mechanic.id}
+            name={mechanic.name}
+            specialty={mechanic.specialty}
+            rating={mechanic.rating}
+            onPress={() => {}}
           />
         ))}
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -53,7 +45,6 @@ const styles = StyleSheet.create({
 
   content: {
     padding: Spacing.lg,
-    paddingBottom: Spacing.xxl,
   },
 
   title: {
