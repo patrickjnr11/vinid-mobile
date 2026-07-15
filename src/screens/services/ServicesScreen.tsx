@@ -4,11 +4,12 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  View,
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
-import ServiceCard from "../../components/ServiceCard";
+import ServiceCategoryCard from "../../components/services/ServiceCategoryCard";
 
 import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
@@ -24,68 +25,60 @@ export default function ServicesScreen() {
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.title}>
-          Services
+          Vehicle Services
         </Text>
 
-        <Text style={styles.subtitle}>
-          Choose the service you need from trusted vehicle professionals.
-        </Text>
+        <View style={styles.grid}>
 
-        <ServiceCard
-          emoji="🛠"
-          title="Mechanic"
-          description="Find experienced mechanics near you."
-          onPress={() => navigation.navigate("Mechanics")}
-        />
+          <ServiceCategoryCard
+            emoji="🛠"
+            title="Find Mechanic"
+            onPress={() => navigation.navigate("Mechanics")}
+          />
 
-        <ServiceCard
-          emoji="🚗"
-          title="Vehicle Servicing"
-          description="Book routine maintenance and servicing."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="🚨"
+            title="Emergency Towing"
+            onPress={() => navigation.navigate("EmergencyTowing")}
+          />
 
-        <ServiceCard
-          emoji="🛢"
-          title="Oil Change"
-          description="Keep your engine running at its best."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="🛢"
+            title="Oil Change"
+            onPress={() => navigation.navigate("OilChange")}
+          />
 
-        <ServiceCard
-          emoji="🛞"
-          title="Tyre Services"
-          description="Tyre replacement, balancing and repairs."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="🚗"
+            title="Car Wash"
+            onPress={() => navigation.navigate("CarWash")}
+          />
 
-        <ServiceCard
-          emoji="🔋"
-          title="Battery Replacement"
-          description="Quick battery testing and replacement."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="🔋"
+            title="Battery"
+            onPress={() => navigation.navigate("BatteryService")}
+          />
 
-        <ServiceCard
-          emoji="🧰"
-          title="Diagnostics"
-          description="Professional vehicle diagnostics."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="🛞"
+            title="Tyres"
+            onPress={() => navigation.navigate("TyreService")}
+          />
 
-        <ServiceCard
-          emoji="🚨"
-          title="Emergency Towing"
-          description="24/7 roadside assistance when you need it."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="🆘"
+            title="Roadside"
+            onPress={() => navigation.navigate("RoadsideAssistance")}
+          />
 
-        <ServiceCard
-          emoji="🚿"
-          title="Car Wash"
-          description="Keep your vehicle looking brand new."
-          onPress={() => {}}
-        />
+          <ServiceCategoryCard
+            emoji="⚙️"
+            title="Spare Parts"
+            onPress={() => navigation.navigate("SpareParts")}
+          />
+
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -106,13 +99,10 @@ const styles = StyleSheet.create({
     fontSize: Typography.fontSize.xxxl,
     fontWeight: Typography.fontWeight.bold,
     color: Colors.primary,
+    marginBottom: Spacing.xl,
   },
 
-  subtitle: {
-    marginTop: Spacing.sm,
-    marginBottom: Spacing.xl,
-    color: Colors.textSecondary,
-    fontSize: Typography.fontSize.md,
-    lineHeight: 22,
+  grid: {
+    gap: Spacing.md,
   },
 });

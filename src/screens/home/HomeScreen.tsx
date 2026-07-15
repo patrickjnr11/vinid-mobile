@@ -34,32 +34,35 @@ export default function HomeScreen() {
         </Text>
 
         <View style={styles.grid}>
+
           <QuickActionCard
             emoji="🛠"
             title="Find Mechanic"
-            onPress={() => navigation.navigate("Mechanics")}
+           onPress={() => navigation.navigate("Mechanics")}
           />
 
           <QuickActionCard
             emoji="🚗"
-            title="Book Service"
-            onPress={() => navigation.navigate("Mechanics")}
+            title="Vehicle Services"
+           onPress={() => navigation.navigate("Services")}
           />
 
           <QuickActionCard
             emoji="🚨"
             title="Emergency Towing"
-            onPress={() => {}}
+            onPress={() => navigation.navigate("EmergencyTowing")}
           />
 
           <QuickActionCard
-            emoji="🔧"
+            emoji="⚙️"
             title="Spare Parts"
-            onPress={() => {}}
+            onPress={() => navigation.navigate("SpareParts")}
           />
+
         </View>
 
         <SectionCard title="My Vehicles">
+
           <Text style={styles.body}>
             Manage all your registered vehicles.
           </Text>
@@ -70,13 +73,17 @@ export default function HomeScreen() {
               onPress={() => navigation.navigate("MyVehicles")}
             />
           </View>
+
         </SectionCard>
 
         <SectionCard title="Recent Activity">
+
           <Text style={styles.body}>
             You haven't made any bookings yet.
           </Text>
+
         </SectionCard>
+
       </ScrollView>
     </SafeAreaView>
   );
