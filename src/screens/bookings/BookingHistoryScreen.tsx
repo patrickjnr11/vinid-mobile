@@ -46,25 +46,37 @@ export default function BookingHistoryScreen() {
 
         <BookingCard
 
+          mechanic="Rapid Tow Services"
+
           service="Emergency Towing"
 
-          provider="Rapid Tow Services"
+          date="12 Jul 2026"
 
           status="Completed"
 
-          onPress={() => navigation.navigate("BookingDetails")}
+          onPress={() =>
+
+            navigation.navigate("BookingDetails")
+
+          }
 
         />
 
         <BookingCard
 
+          mechanic="Prime Oil Centre"
+
           service="Oil Change"
 
-          provider="Prime Oil Centre"
+          date="28 Jun 2026"
 
           status="Completed"
 
-          onPress={() => navigation.navigate("BookingDetails")}
+          onPress={() =>
+
+            navigation.navigate("BookingDetails")
+
+          }
 
         />
 

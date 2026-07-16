@@ -1,85 +1,165 @@
 import React from "react";
+
 import {
+
   Pressable,
+
   StyleSheet,
+
   Text,
+
   View,
+
 } from "react-native";
 
 import { Colors } from "../theme/colors";
-import { Typography } from "../theme/typography";
+
 import { Spacing } from "../theme/spacing";
 
+import { Typography } from "../theme/typography";
+
 type NotificationCardProps = {
+
   title: string;
+
   message: string;
-  time: string;
+
+  date: string;
+
+  unread: boolean;
+
   onPress: () => void;
+
 };
 
 export default function NotificationCard({
+
   title,
+
   message,
-  time,
+
+  date,
+
+  unread,
+
   onPress,
+
 }: NotificationCardProps) {
+
   return (
+
     <Pressable
-      style={({ pressed }) => [
-        styles.card,
-        pressed && styles.pressed,
-      ]}
+
       onPress={onPress}
+
+      style={styles.card}
+
     >
-      <Text style={styles.title}>
-        {title}
-      </Text>
+
+      <View style={styles.header}>
+
+        <Text style={styles.title}>
+
+          {title}
+
+        </Text>
+
+        {unread && (
+
+          <View style={styles.dot} />
+
+        )}
+
+      </View>
 
       <Text style={styles.message}>
+
         {message}
+
       </Text>
 
-      <View style={styles.footer}>
-        <Text style={styles.time}>
-          {time}
-        </Text>
-      </View>
+      <Text style={styles.date}>
+
+        {date}
+
+      </Text>
+
     </Pressable>
+
   );
+
 }
 
 const styles = StyleSheet.create({
+
   card: {
+
     backgroundColor: Colors.surface,
+
     borderRadius: 18,
+
     padding: Spacing.lg,
+
     marginBottom: Spacing.md,
+
     elevation: 2,
+
   },
 
-  pressed: {
-    opacity: 0.85,
+  header: {
+
+    flexDirection: "row",
+
+    justifyContent: "space-between",
+
+    alignItems: "center",
+
+    marginBottom: Spacing.sm,
+
   },
 
   title: {
-    fontSize: Typography.fontSize.lg,
-    fontWeight: Typography.fontWeight.bold,
+
     color: Colors.text,
+
+    fontSize: Typography.fontSize.lg,
+
+    fontWeight: Typography.fontWeight.bold,
+
+    flex: 1,
+
   },
 
   message: {
-    marginTop: Spacing.sm,
+
     color: Colors.textSecondary,
+
     fontSize: Typography.fontSize.md,
+
+    marginBottom: Spacing.md,
+
     lineHeight: 22,
+
   },
 
-  footer: {
-    marginTop: Spacing.md,
-  },
+  date: {
 
-  time: {
-    color: Colors.primary,
+    color: Colors.textSecondary,
+
     fontSize: Typography.fontSize.sm,
+
   },
+
+  dot: {
+
+    width: 10,
+
+    height: 10,
+
+    borderRadius: 5,
+
+    backgroundColor: Colors.primary,
+
+  },
+
 });

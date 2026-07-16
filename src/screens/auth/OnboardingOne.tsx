@@ -7,7 +7,7 @@ import PrimaryButton from "../../components/PrimaryButton";
 import { Colors } from "../../theme/colors";
 import { Spacing } from "../../theme/spacing";
 import { Typography } from "../../theme/typography";
-import { RootStackParamList } from "../../navigation/AppNavigator";
+import { RootStackParamList } from "../../navigation/RootStack";
 
 type Props = NativeStackScreenProps<RootStackParamList, "OnboardingOne">;
 

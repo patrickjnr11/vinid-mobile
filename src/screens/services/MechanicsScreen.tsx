@@ -14,9 +14,9 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 
-import NotificationCard from "../../components/NotificationCard";
+import MechanicCard from "../../components/mechanics/MechanicCard";
 
-import { notifications } from "../../data/notifications";
+import { mechanics } from "../../data/mechanics";
 
 import { Colors } from "../../theme/colors";
 
@@ -24,7 +24,7 @@ import { Spacing } from "../../theme/spacing";
 
 import { Typography } from "../../theme/typography";
 
-export default function NotificationsScreen() {
+export default function MechanicsScreen() {
 
   const navigation = useNavigation<any>();
 
@@ -42,27 +42,49 @@ export default function NotificationsScreen() {
 
         <Text style={styles.title}>
 
-          Notifications
+          Find a Mechanic
 
         </Text>
 
-        {notifications.map((notification) => (
+        <Text style={styles.subtitle}>
 
-          <NotificationCard
+          Trusted mechanics near you
 
-            key={notification.id}
+        </Text>
 
-            title={notification.title}
+        {mechanics.map((mechanic) => (
 
-            message={notification.message}
+          <MechanicCard
 
-            date={notification.date}
+            key={mechanic.id}
 
-            unread={notification.unread}
+            name={mechanic.name}
+
+            service={mechanic.service}
+
+            rating={mechanic.rating}
+
+            reviews={mechanic.reviews}
+
+            distance={mechanic.distance}
+
+            available={mechanic.available}
+
+            image={mechanic.image}
 
             onPress={() =>
 
-              navigation.navigate("NotificationDetails")
+              navigation.navigate(
+
+                "MechanicDetails",
+
+                {
+
+                  mechanic,
+
+                }
+
+              )
 
             }
 
@@ -103,6 +125,16 @@ const styles = StyleSheet.create({
     fontWeight: Typography.fontWeight.bold,
 
     color: Colors.primary,
+
+  },
+
+  subtitle: {
+
+    fontSize: Typography.fontSize.md,
+
+    color: Colors.textSecondary,
+
+    marginTop: Spacing.sm,
 
     marginBottom: Spacing.xl,
 

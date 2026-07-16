@@ -18,136 +18,156 @@ import { Spacing } from "../theme/spacing";
 
 import { Typography } from "../theme/typography";
 
-interface BookingCardProps{
+interface BookingCardProps {
 
-  service:string;
+  mechanic: string;
 
-  provider:string;
+  service: string;
 
-  status:string;
+  date: string;
 
-  onPress:()=>void;
+  status: string;
+
+  onPress: () => void;
 
 }
 
 export default function BookingCard({
 
+  mechanic,
+
   service,
 
-  provider,
+  date,
 
   status,
 
   onPress,
 
-}:BookingCardProps){
+}: BookingCardProps) {
 
-  return(
+  return (
 
-<Pressable
+    <Pressable
 
-style={styles.card}
+      style={styles.card}
 
-onPress={onPress}
+      onPress={onPress}
 
->
+    >
 
-<Text style={styles.service}>
+      <Text style={styles.service}>
 
-{service}
+        {service}
 
-</Text>
+      </Text>
 
-<Text style={styles.provider}>
+      <Text style={styles.provider}>
 
-{provider}
+        {mechanic}
 
-</Text>
+      </Text>
 
-<View style={styles.row}>
+      <Text style={styles.date}>
 
-<Text style={styles.status}>
+        {date}
 
-{status}
+      </Text>
 
-</Text>
+      <View style={styles.row}>
 
-<Text style={styles.view}>
+        <Text style={styles.status}>
 
-View →
+          {status}
 
-</Text>
+        </Text>
 
-</View>
+        <Text style={styles.view}>
 
-</Pressable>
+          View →
+
+        </Text>
+
+      </View>
+
+    </Pressable>
 
   );
 
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
 
-card:{
+  card: {
 
-backgroundColor:"#FFFFFF",
+    backgroundColor: Colors.surface,
 
-borderRadius:16,
+    borderRadius: 16,
 
-padding:Spacing.lg,
+    padding: Spacing.lg,
 
-marginBottom:Spacing.md,
+    marginBottom: Spacing.md,
 
-elevation:2,
+    elevation: 2,
 
-},
+  },
 
-service:{
+  service: {
 
-fontSize:Typography.fontSize.lg,
+    fontSize: Typography.fontSize.lg,
 
-fontWeight:Typography.fontWeight.bold,
+    fontWeight: Typography.fontWeight.bold,
 
-color:Colors.text,
+    color: Colors.text,
 
-marginBottom:6,
+    marginBottom: 6,
 
-},
+  },
 
-provider:{
+  provider: {
 
-fontSize:Typography.fontSize.md,
+    fontSize: Typography.fontSize.md,
 
-color:Colors.textSecondary,
+    color: Colors.textSecondary,
 
-marginBottom:Spacing.md,
+    marginBottom: 4,
 
-},
+  },
 
-row:{
+  date: {
 
-flexDirection:"row",
+    fontSize: Typography.fontSize.sm,
 
-justifyContent:"space-between",
+    color: Colors.textSecondary,
 
-alignItems:"center",
+    marginBottom: Spacing.md,
 
-},
+  },
 
-status:{
+  row: {
 
-color:"#16A34A",
+    flexDirection: "row",
 
-fontWeight:"600",
+    justifyContent: "space-between",
 
-},
+    alignItems: "center",
 
-view:{
+  },
 
-color:Colors.primary,
+  status: {
 
-fontWeight:"700",
+    color: Colors.success,
 
-},
+    fontWeight: Typography.fontWeight.semibold,
+
+  },
+
+  view: {
+
+    color: Colors.primary,
+
+    fontWeight: Typography.fontWeight.bold,
+
+  },
 
 });
