@@ -1,108 +1,153 @@
 import React from "react";
+
 import {
+
   Pressable,
+
   StyleSheet,
+
   Text,
+
   View,
+
 } from "react-native";
 
 import { Colors } from "../theme/colors";
-import { Typography } from "../theme/typography";
+
 import { Spacing } from "../theme/spacing";
 
-type BookingCardProps = {
-  mechanic: string;
-  service: string;
-  date: string;
-  status: string;
-  onPress: () => void;
-};
+import { Typography } from "../theme/typography";
 
-export default function BookingCard({
-  mechanic,
-  service,
-  date,
-  status,
-  onPress,
-}: BookingCardProps) {
-  return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.card,
-        pressed && styles.pressed,
-      ]}
-      onPress={onPress}
-    >
-      <Text style={styles.mechanic}>
-        {mechanic}
-      </Text>
+interface BookingCardProps{
 
-      <Text style={styles.service}>
-        {service}
-      </Text>
+  service:string;
 
-      <View style={styles.footer}>
-        <Text style={styles.date}>
-          {date}
-        </Text>
+  provider:string;
 
-        <Text style={styles.status}>
-          {status}
-        </Text>
-      </View>
-    </Pressable>
-  );
+  status:string;
+
+  onPress:()=>void;
+
 }
 
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: Colors.surface,
-    borderRadius: 18,
-    padding: Spacing.lg,
-    marginBottom: Spacing.md,
+export default function BookingCard({
 
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
+  service,
 
-    elevation: 3,
-  },
+  provider,
 
-  pressed: {
-    opacity: 0.85,
-  },
+  status,
 
-  mechanic: {
-    color: Colors.text,
-    fontSize: Typography.fontSize.lg,
-    fontWeight: Typography.fontWeight.bold,
-  },
+  onPress,
 
-  service: {
-    marginTop: Spacing.xs,
-    color: Colors.textSecondary,
-    fontSize: Typography.fontSize.md,
-  },
+}:BookingCardProps){
 
-  footer: {
-    marginTop: Spacing.md,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
+  return(
 
-  date: {
-    color: Colors.textSecondary,
-    fontSize: Typography.fontSize.sm,
-  },
+<Pressable
 
-  status: {
-    color: Colors.primary,
-    fontWeight: Typography.fontWeight.semibold,
-    fontSize: Typography.fontSize.sm,
-  },
+style={styles.card}
+
+onPress={onPress}
+
+>
+
+<Text style={styles.service}>
+
+{service}
+
+</Text>
+
+<Text style={styles.provider}>
+
+{provider}
+
+</Text>
+
+<View style={styles.row}>
+
+<Text style={styles.status}>
+
+{status}
+
+</Text>
+
+<Text style={styles.view}>
+
+View →
+
+</Text>
+
+</View>
+
+</Pressable>
+
+  );
+
+}
+
+const styles=StyleSheet.create({
+
+card:{
+
+backgroundColor:"#FFFFFF",
+
+borderRadius:16,
+
+padding:Spacing.lg,
+
+marginBottom:Spacing.md,
+
+elevation:2,
+
+},
+
+service:{
+
+fontSize:Typography.fontSize.lg,
+
+fontWeight:Typography.fontWeight.bold,
+
+color:Colors.text,
+
+marginBottom:6,
+
+},
+
+provider:{
+
+fontSize:Typography.fontSize.md,
+
+color:Colors.textSecondary,
+
+marginBottom:Spacing.md,
+
+},
+
+row:{
+
+flexDirection:"row",
+
+justifyContent:"space-between",
+
+alignItems:"center",
+
+},
+
+status:{
+
+color:"#16A34A",
+
+fontWeight:"600",
+
+},
+
+view:{
+
+color:Colors.primary,
+
+fontWeight:"700",
+
+},
+
 });
