@@ -20,7 +20,7 @@ import { Spacing } from "../../theme/spacing";
 
 import { Typography } from "../../theme/typography";
 
-interface MechanicCardProps {
+type MechanicCardProps = {
 
   name: string;
 
@@ -38,7 +38,7 @@ interface MechanicCardProps {
 
   onPress: () => void;
 
-}
+};
 
 export default function MechanicCard({
 
@@ -128,11 +128,7 @@ export default function MechanicCard({
 
             >
 
-              {available
-
-                ? "Available"
-
-                : "Busy"}
+              {available ? "Available" : "Busy"}
 
             </Text>
 
